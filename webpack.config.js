@@ -22,7 +22,9 @@ const webpackConfig = {
   module: {}
 };
 
+// ------------------------------------
 // Entry Points
+// ------------------------------------
 const APP_ENTRY_PATHS = [
   resolve(__dirname, 'src', 'client.js')
 ];
@@ -34,14 +36,18 @@ webpackConfig.entry = {
   vendor: config.compiler_vendor
 };
 
+// ------------------------------------
 // Bundle Output
+// ------------------------------------
 webpackConfig.output = {
   filename: `[name].[${config.compiler_hash_type}].js`,
   path: resolve(__dirname, 'dist'),
   publicPath: `http://${config.server_host}:${config.server_port}/`
 };
 
+// ------------------------------------
 // Plugins
+// ------------------------------------
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new HtmlWebpackPlugin({
@@ -65,6 +71,7 @@ if (!__TEST__) {
 }
 
 if (__DEV__) {
+  debug('Enable plugins for live development (HMR, NoErrors).')
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
@@ -72,6 +79,7 @@ if (__DEV__) {
 }
 
 if (__PROD__) {
+  debug('Enable plugins for production (OccurenceOrder, Dedupe & UglifyJS).')
   webpackConfig.plugins.push(
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.DedupePlugin(),
@@ -95,7 +103,10 @@ if (!__TEST__) {
   );
 }
 
+// ------------------------------------
 // Loaders
+// ------------------------------------
+// JavaScript / JSON
 webpackConfig.module.loaders = [
   {
     test: /\.(js|jsx)$/,
@@ -116,7 +127,9 @@ webpackConfig.module.loaders = [
 ];
 
 
+// ------------------------------------
 // Style Loaders
+// ------------------------------------
 // We use cssnano with the postcss loader, so we tell
 // css-loader not to duplicate minimization.
 const BASE_CSS_LOADER = 'css?sourceMap&-minimize';
@@ -191,7 +204,6 @@ webpackConfig.module.loaders.push({
   ]
 });
 
-// Style Configuration
 webpackConfig.sassLoader = {
   includePaths: resolve(__dirname, 'src', 'styles')
 };
@@ -225,24 +237,26 @@ webpackConfig.module.loaders.push(
   { test: /\.(png|jpg)$/,    loader: 'url?limit=8192' }
 );
 
+// ------------------------------------
 // Finalize Configuration
+// ------------------------------------
 // when we don't know the public path (we know it only when HMR is enabled [in development]) we
 // need to use the extractTextPlugin to fix this issue:
 // http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809
 if (!__DEV__) {
   debug('Apply ExtractTextPlugin to CSS loaders.');
-
   webpackConfig.module.loaders.filter((loader) =>
     loader.loaders && loader.loaders.find((name) => /css/.test(name.split('?')[0]))
   ).forEach((loader) => {
-    const [first, ...rest] = loader.loaders;
+    const first = loader.loaders[0];
+    const rest = loader.loaders.slice(1);
     loader.loader = ExtractTextPlugin.extract(first, rest.join('!'));
-    Reflect.deleteProperty(loader, 'loaders');
+    delete loader.loaders
   });
 
   webpackConfig.plugins.push(
     new ExtractTextPlugin('[name].[contenthash].css', {
-      allChunks: true
+      allChunks : true
     })
   );
 }
