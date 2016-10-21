@@ -1,0 +1,10 @@
+{
+  "verbose": false,
+  "ignore": [
+    "dist",
+    "src/components",
+    "src/static",
+    "src/styles",
+    "src/client.js"
+  ]
+}
