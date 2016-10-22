@@ -1,6 +1,6 @@
 {
-  "presets": ["es2015", "react", "stage-0"],
-  "plugins": ["transform-runtime"]
+  "presets": ["es2015", "stage-0", "react"],
+  "plugins": ["react-hot-loader/babel"]
 }
 
 //stage-0 - Strawman: just an idea, possible Babel plugin.

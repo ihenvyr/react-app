@@ -7,8 +7,9 @@ const debug = require('debug')('app:webpack:config');
 
 debug('Create webpack configuration development');
 webpackConfig.entry.app = [
-  'webpack/hot/dev-server',
+  'react-hot-loader/patch',
   'webpack-hot-middleware/client',
+  'webpack/hot/only-dev-server',
   resolve(__dirname, 'src', 'client.js')
 ];
 

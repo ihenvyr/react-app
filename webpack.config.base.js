@@ -29,7 +29,7 @@ const webpackConfig = {
   },
   module: {
     loaders: [
-      { test: /\.(js|jsx)$/, loader: 'babel', exclude: /node_modules/ }
+      { test: /\.(js|jsx)$/, loaders: ['babel'], exclude: /node_modules/ }
     ]
   },
   plugins: [

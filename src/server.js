@@ -31,6 +31,7 @@ if (process.env.NODE_ENV === 'development') {
     quiet: false,
     noInfo: false,
     lazy: false,
+    historyApiFallback: true,
     stats: {
       chunks: false,
       chunkModules: false,
