@@ -1,3 +1,11 @@
+// classes inside :global are not converted into [name]__[local]___[hash:base64:5] by css-loader
+:global {
+  .bold-green-text {
+    color: #38bf6f;
+    font-weight: bold;
+  }
+}
+
 .container {
   margin: 50px auto 0;
   width: 800px;
