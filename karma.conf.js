@@ -1,5 +1,5 @@
 // Karma configuration
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.config.test');
 const testGlob = 'src/components/**/*.spec.js';
 const debug = require('debug')('app:karma');
 
