@@ -11,7 +11,8 @@ webpackConfig.entry.app = [
   resolve(__dirname, 'src', 'client.js')
 ];
 
-webpackConfig.output.publicPath = '/static';
+// serve dynamically loaded routes
+webpackConfig.output.publicPath = '/static/';
 
 webpackConfig.module.loaders.push({
   test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', [

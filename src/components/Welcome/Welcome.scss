@@ -12,6 +12,10 @@
 }
 
 .container {
+  label {
+    color: black;
+    font-weight: bold;
+  }
   input {
     margin-left: 5px;
     position: relative;

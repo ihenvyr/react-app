@@ -4,7 +4,13 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer role="contentinfo">
-      <p><small>&copy; Copyright {(new Date()).getFullYear()} Henry Cruz</small></p>
+      <p>
+        <small>
+          <a href="https://github.com/ihenvyr/react-app" target="_blank">React App</a>
+          {' '}
+          Powered by ReactJS
+        </small>
+      </p>
     </footer>
   );
 };

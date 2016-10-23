@@ -15,8 +15,6 @@ const webpackConfig = {
   },
   entry: {
     vendor: [
-      // 'mobx',
-      // 'mobx-react',
       'react',
       'react-dom',
       'react-helmet',
