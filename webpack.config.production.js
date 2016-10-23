@@ -2,8 +2,6 @@ import webpack from 'webpack';
 import { resolve } from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import autoprefixer from 'autoprefixer';
-// import precss = require('precss');
 const baseConfig = require('./webpack.config.base');
 const webpackConfig = Object.create(baseConfig);
 const debug = require('debug')('app:webpack:config');
@@ -22,10 +20,6 @@ webpackConfig.module.loaders.push({
     'sass-loader'
   ])
 });
-
-webpackConfig.postcss = function() {
-  return [autoprefixer];
-};
 
 webpackConfig.plugins.push(
   new webpack.optimize.OccurrenceOrderPlugin(),

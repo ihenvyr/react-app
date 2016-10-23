@@ -2,25 +2,25 @@ import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
-import App from './components/App';
+import App from './containers/App';
 
 ReactDOM.render(
   <AppContainer>
     <App />
   </AppContainer>,
-  document.getElementById('root')
+  document.getElementById('app')
 );
 
 if (module.hot) {
-  module.hot.accept('./components/App', () => {
+  module.hot.accept('./containers/App', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./components/App').default;
+    const NextApp = require('./containers/App').default;
     ReactDOM.render(
       <AppContainer>
         <NextApp />
       </AppContainer>,
-      document.getElementById('root')
+      document.getElementById('app')
     );
   });
 }

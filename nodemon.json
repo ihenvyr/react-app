@@ -3,8 +3,12 @@
   "ignore": [
     "dist",
     "src/components",
+    "src/containers",
+    "src/layouts",
+    "src/pages",
     "src/static",
     "src/styles",
-    "src/client.js"
+    "src/client.js",
+    "src/routes.js"
   ]
 }

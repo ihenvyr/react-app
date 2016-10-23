@@ -11,7 +11,7 @@ const webpackConfig = {
   devtool: 'source-map',
   resolve: {
     root: resolve(__dirname, 'src'),
-    extensions: ['', '.js', '.jsx', '.json']
+    extensions: ['', '.js', '.json']
   },
   entry: {
     vendor: [
@@ -19,8 +19,8 @@ const webpackConfig = {
       // 'mobx-react',
       'react',
       'react-dom',
-      // 'react-helmet',
-      // 'react-router'
+      'react-helmet',
+      'react-router'
     ]
   },
   output: {
@@ -44,7 +44,16 @@ const webpackConfig = {
         collapseWhitespace: true
       }
     })
-  ]
+  ],
+  postcss: function() {
+    const browsers = ['last 2 versions'];
+    const autoprefixer = require('autoprefixer');
+    // const info = autoprefixer({ browsers }).info();
+    // debug(info);
+    return [
+      autoprefixer({ browsers })
+    ];
+  }
 };
 
 module.exports = webpackConfig;

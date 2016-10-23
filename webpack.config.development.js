@@ -16,13 +16,16 @@ webpackConfig.entry.app = [
 webpackConfig.output.publicPath = `${config.server_protocol}//${config.server_host}:${config.server_port}/`;
 
 webpackConfig.module.loaders.push(
-  { test: /\.scss$/, loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]!sass-loader'}
+  { test: /\.scss$/, loaders: [
+    'style-loader',
+    'css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]',
+    'postcss-loader',
+    'sass-loader'
+  ] }
 );
 
 webpackConfig.plugins.push(
-  new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.HotModuleReplacementPlugin(),
-  new webpack.NoErrorsPlugin()
+  new webpack.HotModuleReplacementPlugin()
 );
 
 module.exports = webpackConfig;

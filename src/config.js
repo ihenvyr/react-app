@@ -6,7 +6,7 @@ const config = {
   env: process.env.NODE_ENV || 'development',
 
   // Server
-  server_host: 'localhost', // require('ip').address(), // 'localhost'
+  server_host: '127.0.0.1', // require('ip').address(), // 'localhost'
   server_port: process.env.PORT || 8000,
   server_protocol: 'http:'
 };
