@@ -3,9 +3,9 @@
   "ignore": [
     "dist",
     "src/components",
-    "src/containers",
     "src/layouts",
     "src/pages",
+    "src/redux",
     "src/static",
     "src/styles",
     "src/client.js",

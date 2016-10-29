@@ -1,9 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import PageNotFound from './PageNotFound';
 import { withRouter } from 'react-router';
 
-const PageNotFoundContainer = (props) => {
+const NotFoundPage = () => {
   return (
     <div>
       <Helmet title="Page not found"
@@ -11,9 +10,12 @@ const PageNotFoundContainer = (props) => {
                 { name: "description", content: "Page not found" }
               ]}
       />
-      <PageNotFound {...props} />
+      <h1>Page not found :(</h1>
+      <p>We couldn't load the page you requested..</p>
     </div>
   );
 };
+NotFoundPage.propTypes = {};
+NotFoundPage.defaultProps = {};
 
-export default withRouter(PageNotFoundContainer);
+export default withRouter(NotFoundPage);

@@ -1,9 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import About from './About';
 import { withRouter } from 'react-router';
 
-const AboutContainer = (props) => {
+const AboutPage = () => {
   return (
     <div>
       <Helmet title="About"
@@ -11,9 +10,12 @@ const AboutContainer = (props) => {
                 { name: "description", content: "About" }
               ]}
       />
-      <About {...props} />
+      <h1>About</h1>
+      <p>It includes react-router, react-hot-loader 3, express, karma test runner and semantic-ui css framework!</p>
     </div>
   );
 };
+AboutPage.propTypes = {};
+AboutPage.defaultProps = {};
 
-export default withRouter(AboutContainer);
+export default withRouter(AboutPage);

@@ -1,7 +1,8 @@
 import React from 'react';
-import './Signout.scss';
+import Helmet from 'react-helmet';
+import { withRouter } from 'react-router';
 
-class Signout extends React.Component {
+class SignoutPage extends React.Component {
   static propTypes = {};
   static defaultProps = {};
   state = {};
@@ -18,6 +19,11 @@ class Signout extends React.Component {
   render() {
     return (
       <div>
+        <Helmet title="Signing out.."
+                meta={[
+                  { name: "description", content: "Signing out.." }
+                ]}
+        />
         <h1>Signing out..</h1>
         <p>Please wait while we sign you out from the app!</p>
       </div>
@@ -25,4 +31,4 @@ class Signout extends React.Component {
   }
 }
 
-export default Signout;
+export default withRouter(SignoutPage);

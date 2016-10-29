@@ -1,9 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import Home from './Home';
 import { withRouter } from 'react-router';
+import Welcome from '../components/Welcome';
 
-const HomeContainer = (props) => {
+const HomePage = () => {
   return (
     <div>
       <Helmet title="Home"
@@ -11,9 +11,11 @@ const HomeContainer = (props) => {
                 { name: "description", content: "Home" }
               ]}
       />
-      <Home {...props} />
+      <Welcome/>
     </div>
   );
 };
+HomePage.propTypes = {};
+HomePage.defaultProps = {};
 
-export default withRouter(HomeContainer);
+export default withRouter(HomePage);

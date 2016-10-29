@@ -6,10 +6,12 @@ if (__DEV__) {
   // temporary fix react-hot-reload on development
   // just ignore "[HMR] unexpected require(453) from disposed module 413" warning when switching routes
   require('./pages/About');
+  require('./pages/Demos');
   require('./pages/Signup');
   require('./pages/Signin');
   require('./pages/Signout');
-  require('./pages/PageNotFound');
+  require('./pages/Counter');
+  require('./pages/NotFound');
 }
 
 const routes = {
@@ -24,6 +26,17 @@ const routes = {
           callback(null, require('./pages/About').default);
         });
       }
+    },
+    {
+      path: 'demos',
+      getComponents(nextState, callback) {
+        require.ensure([], function(require) {
+          callback(null, require('./pages/Demos').default);
+        });
+      },
+      childRoutes: [
+        { path: 'counter', component: require('./pages/Counter').default }
+      ]
     },
     {
       path: 'signup',
@@ -53,7 +66,7 @@ const routes = {
       path: '*',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/PageNotFound').default);
+          callback(null, require('./pages/NotFound').default);
         });
       }
     }

@@ -18,7 +18,11 @@ const webpackConfig = {
       'react',
       'react-dom',
       'react-helmet',
-      'react-router'
+      'react-redux',
+      'react-router',
+      'react-router-redux',
+      'redux',
+      'redux-thunk',
     ]
   },
   output: {

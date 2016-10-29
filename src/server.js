@@ -41,6 +41,9 @@ if (process.env.NODE_ENV === 'development') {
 
   debug('Configure webpack-hot-middleware');
   app.use(require('webpack-hot-middleware')(compiler));
+
+  debug('Serve src/static as /static');
+  app.use('/static', express.static(resolve('src', 'static')));
 }
 
 if (process.env.NODE_ENV === 'production') {
