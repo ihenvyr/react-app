@@ -28,20 +28,6 @@ class Counter extends React.Component {
   static defaultProps = {};
   state = {};
 
-  // componentWillMount() {}
-
-  // componentWillUnmount() {}
-
-  // componentDidMount() {}
-
-  // componentWillReceiveProps(nextProps) {}
-
-  // shouldComponentUpdate(nextProps, nextState) {}
-
-  // componentWillUpdate(nextProps, nextState) {}
-
-  // componentDidUpdate(prevProps, prevState) {}
-
   onDecrement = () => {
     this.props.counterDecrement();
   };
@@ -57,11 +43,11 @@ class Counter extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <p className={styles.counter}>{this.props.counter || 0}</p>
+        <h1 className={styles.counter}>{this.props.counter || 0}</h1>
         <p>
-          <button type="button" onClick={this.onDecrement}> - </button>
-          <button type="button" onClick={this.onReset}>reset (async)</button>
-          <button type="button" onClick={this.onIncrement}> + </button>
+          <button className="ui small button red" type="button" onClick={this.onDecrement}>-</button>
+          <button className="ui small button blue" type="button" onClick={this.onReset}>reset (async)</button>
+          <button className="ui small button green" type="button" onClick={this.onIncrement}>+</button>
         </p>
       </div>
     );

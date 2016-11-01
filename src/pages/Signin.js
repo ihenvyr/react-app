@@ -1,6 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
+import Signin from '../redux/containers/Signin';
 
 const SigninPage = () => {
   return (
@@ -12,17 +13,7 @@ const SigninPage = () => {
       />
       <h1>Sign In</h1>
 
-      <form className="ui form" style={{ width: 320 }}>
-        <div className="field">
-          <label>Email</label>
-          <input type="text" name="email" placeholder="" required />
-        </div>
-        <div className="field">
-          <label>Password</label>
-          <input type="text" name="password" placeholder="" required />
-        </div>
-        <button className="ui green button" type="submit">Sign in</button>
-      </form>
+      <Signin />
     </div>
   );
 };

@@ -3,6 +3,15 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 const resolve = require('path').resolve;
 const debug = require('debug')('app:server');
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+
+if (config.env === 'development') {
+  const log = require('debug')('app:mongodb');
+  mongoose.set('debug', (collection, method, query, doc) => {
+    log('query:', collection, method, query);
+  });
+}
 
 debug('Starting..');
 const app = express();
@@ -11,7 +20,44 @@ debug('Configure body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 'extended': 'true' }));
 
-app.get('/foo', (req, res) => {
+debug('Connect to mongodb');
+mongoose.connect(config.mongodb());
+
+// graphql
+debug('Configure graphql schema');
+import appSchema from './schema';
+import graphqlHTTP from 'express-graphql';
+app.use('/graphql', graphqlHTTP({
+  schema: appSchema,
+  graphiql: true,
+  context: {} // context will be on the third argument of resolve(object, args, context)
+}));
+
+// passport
+debug('Configure passport local strategy');
+// import passport from 'passport';
+// import local from './strategies/local';
+// passport.use(local);
+
+// passport signin route
+// app.post('/signin', passport.authenticate('local', {
+//   successRedirect: '/',
+//   failureRedirect: '/signin',
+//   failureFlash: false
+// }));
+
+import User from './models/User';
+app.post('/signin', (req, res) => {
+  const { email, password } = req.body;
+  User.findOne({ email: email }, function(err, user) {
+    if (err) { return res.json(err); }
+    if (!user) { return res.json({ message: 'Incorrect email.' }); }
+    if (!user.validPassword(password)) { return res.json({ message: 'Incorrect password.' }); }
+    return res.json({ user });
+  });
+});
+
+app.post('/foo', (req, res) => {
   res.json({ foo: 'barr' });
 });
 

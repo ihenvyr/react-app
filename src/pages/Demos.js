@@ -15,9 +15,11 @@ const DemosPage = (props) => {
         props.children ||
         <div>
           <h1>Demos</h1>
-          <ol>
-            <li><Link to="/demos/counter">Counter</Link></li>
-          </ol>
+
+          <div className="ui bulleted list">
+            <div className="item"><Link to="/demos/counter">Counter</Link></div>
+            <div className="item">Todos</div>
+          </div>
         </div>
       }
     </div>

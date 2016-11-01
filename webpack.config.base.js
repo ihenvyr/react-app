@@ -35,6 +35,9 @@ const webpackConfig = {
     ]
   },
   plugins: [
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     new webpack.DefinePlugin(config.globals),
     new HtmlWebpackPlugin({
       favicon: resolve(__dirname, 'src', 'static', 'favicon.ico'),

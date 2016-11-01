@@ -8,8 +8,8 @@ const Header = () => {
       <nav role="navigation" className={styles.navigation}>
         <div className="ui secondary pointing menu">
           <IndexLink className="item" activeClassName="active" to="/">Home</IndexLink>
-          <Link className="item" activeClassName="active" to="/about">About</Link>
           <Link className="item" activeClassName="active" to="/demos">Demos</Link>
+          <Link className="item" activeClassName="active" to="/about">About</Link>
           <div className="right menu">
             <Link className="item" activeClassName="active" to="/signup">Sign Up</Link>
             <Link className="item" activeClassName="active" to="/signin">Sign In</Link>

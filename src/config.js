@@ -23,4 +23,8 @@ config.globals = {
   '__DEBUG__': config.env === 'development'
 };
 
+config.mongodb = () => {
+  return config.globals.__TEST__ ? 'mongodb://localhost/reactapptest' : 'mongodb://localhost/reactapp';
+};
+
 module.exports = config;
