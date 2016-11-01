@@ -60,7 +60,7 @@ class Signin extends React.Component {
           <label>Password</label>
           <input type="password" name="password" placeholder="" required />
         </div>
-        <button className="ui green button" type="submit">Sign in</button>
+        <button className="ui blue button" type="submit">Sign in</button>
         {' '}
         &nbsp;
         |

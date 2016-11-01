@@ -6,7 +6,7 @@ const webpackConfig = Object.create(baseConfig);
 const debug = require('debug')('app:webpack:config');
 
 debug('Create webpack configuration development');
-// webpackConfig.devtool = 'eval';
+webpackConfig.devtool = 'cheap-module-eval-source-map';
 webpackConfig.entry.app = [
   'react-hot-loader/patch',
   'webpack-hot-middleware/client',

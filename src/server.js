@@ -106,6 +106,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(config.server_port);
-
-// app.listen(config.server_port);
 debug(`Server is now running at ${config.server_protocol}//${config.server_host}:${config.server_port}`);
