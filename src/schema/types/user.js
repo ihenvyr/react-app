@@ -2,20 +2,26 @@ import {
   GraphQLID,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLNonNull,
+  GraphQLList,
 } from 'graphql';
 
 const UserType = new GraphQLObjectType({
   name: 'UserType',
-  fields: () => ({
-    id: { type: GraphQLID },
-    email: { type: new GraphQLNonNull(GraphQLString) },
-    password: { type: GraphQLString },
-    created_at: { type: GraphQLString },
-    updated_at: { type: GraphQLString },
-    createdAt: { type: GraphQLString, resolve: object => object.created_at },
-    updatedAt: { type: GraphQLString, resolve: object => object.updated_at },
-  }),
+  description: '...',
+  fields: () => {
+    const ProductType = require('./product').default;
+
+    return {
+      id: { type: GraphQLID },
+      email: { type: GraphQLString },
+      password: { type: GraphQLString },
+      products: { type: new GraphQLList(ProductType) },
+      created_at: { type: GraphQLString },
+      updated_at: { type: GraphQLString },
+      createdAt: { type: GraphQLString, resolve: user => user.created_at },
+      updatedAt: { type: GraphQLString, resolve: user => user.updated_at },
+    };
+  },
 });
 
 export default UserType;

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const config = require('./config');
 const resolve = require('path').resolve;
 const debug = require('debug')('app:server');
+const DataLoader = require('dataloader');
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
@@ -25,16 +26,35 @@ mongoose.connect(config.mongodb());
 
 // graphql
 debug('Configure graphql schema');
-import appSchema from './schema';
+import schema from './schema';
 import graphqlHTTP from 'express-graphql';
-app.use('/graphql', graphqlHTTP({
-  schema: appSchema,
-  graphiql: true,
-  context: {} // context will be on the third argument of resolve(object, args, context)
-}));
+import {
+  getBrandsByIds,
+  getUsersByIds,
+  getUsersByEmails,
+  getProductsByIds,
+} from './database/mongodb';
+app.use('/graphql', (req, res) => {
+  debug('graphql query ==============================================================================================');
+  debug('body', req.body);
+
+  const viewer = {};
+  const loaders = {
+    getUsersByIds: new DataLoader(getUsersByIds),
+    getUsersByEmails: new DataLoader(getUsersByEmails),
+    getBrandsByIds: new DataLoader(getBrandsByIds),
+    getProductsByIds: new DataLoader(getProductsByIds),
+  };
+
+  graphqlHTTP({
+    schema: schema,
+    graphiql: true,
+    context: { viewer, loaders } // context will be on the third argument of resolve(object, args, context)
+  })(req, res);
+});
 
 // passport
-debug('Configure passport local strategy');
+// debug('Configure passport local strategy');
 // import passport from 'passport';
 // import local from './strategies/local';
 // passport.use(local);

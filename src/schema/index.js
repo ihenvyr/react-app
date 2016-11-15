@@ -6,29 +6,58 @@ import {
   GraphQLList,
 } from 'graphql';
 
-import User from '../models/User';
-import UserType from './types/user';
+import { getBrands, getUsers, getProducts } from '../database/mongodb';
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
-  fields: () => ({
-    hello: {
-      type: GraphQLString,
-        description: 'The simple hello world sample field',
-        resolve: () => 'world'
-    },
-    user: {
-      type: UserType,
+  fields: () => {
+    const BrandType = require('./types/brand').default;
+    const UserType = require('./types/user').default;
+    const ProductType = require('./types/product').default;
+
+    return {
+      brand: {
+        type: BrandType,
         args: {
-        email: { type: new GraphQLNonNull(GraphQLString) }
+          id: { type: new GraphQLNonNull(GraphQLString) }
+        },
+        resolve: (object, args, context) => context.loaders.getBrandsByIds.load([args.id])
       },
-      resolve: (object, args, context) => User.findOne({ email: args.email })
-    },
-    users: {
-      type: new GraphQLList(UserType),
-      resolve: (object, args, context) => User.find({})
-    }
-  })
+      brands: {
+        type: new GraphQLList(BrandType),
+        resolve: (object, args, context) => getBrands()
+      },
+      user: {
+        type: UserType,
+        args: {
+          id: { type: GraphQLString },
+          email: { type: GraphQLString },
+        },
+        resolve: (object, args, context) => {
+          if (args.id) {
+            return context.loaders.getUsersByIds.load(args.id);
+          }
+
+          return context.loaders.getUsersByEmails.load(args.email);
+        }
+      },
+      users: {
+        type: new GraphQLList(UserType),
+        resolve: (object, args, context) => getUsers()
+      },
+      product: {
+        type: ProductType,
+        args: {
+          id: { type: new GraphQLNonNull(GraphQLString) }
+        },
+        resolve: (object, args, context) => context.loaders.getProductsByIds.load([args.id])
+      },
+      products: {
+        type: new GraphQLList(ProductType),
+        resolve: (object, args, context) => getProducts()
+      }
+    };
+  }
 });
 
 const appSchema = new GraphQLSchema({

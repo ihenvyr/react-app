@@ -1,27 +1,29 @@
 import mongoose from 'mongoose';
 
-export const schema = new mongoose.Schema(
-  {
-    email: { type: String, required: true, trim: true, index: { unique: true, dropDups: true } },
-    password: { type: String, required: true, trim: true },
-    role: { type: String, required: true, trim: true }
-  },
-  {
-    // timestamp: true,
-    timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
-  }
-);
+const userSchema = new mongoose.Schema({
+  email: { type: String, required: true, trim: true, index: { unique: true, dropDups: true } },
+  password: { type: String, required: true, trim: true },
+  role: { type: String, required: true, trim: true },
+}, {
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
+});
 
-schema.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function(password) {
   const bcrypt = require('bcryptjs');
   return bcrypt.compareSync(password, this.password);
 };
 
-schema.virtual('admin').get(function() {
+userSchema.virtual('products', {
+  ref: 'Product',
+  localField: '_id',
+  foreignField: 'user_id',
+});
+
+userSchema.virtual('admin').get(function() {
   return this.role === 'admin';
 });
 
-schema.pre('save', function(next) {
+userSchema.pre('save', function(next) {
   if (this.isNew) {
     const bcrypt = require('bcryptjs');
     this.password = bcrypt.hashSync(this.password, 10);
@@ -30,4 +32,6 @@ schema.pre('save', function(next) {
   next();
 });
 
-export default mongoose.model('User', schema);
+export { userSchema };
+
+export default mongoose.model('User', userSchema);

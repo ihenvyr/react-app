@@ -15,7 +15,7 @@
     "compile": "better-npm-run compile",
     "test": "better-npm-run test",
     "test:watch": "better-npm-run test:watch",
-    "test:backend": "better-npm-run test:backend",
+    "test:models": "better-npm-run test:models",
     "mongodb": "mongod",
     "mongodb:seed": "better-npm-run mongodb:seed"
   },
@@ -63,7 +63,7 @@
         "DEBUG": "app:*"
       }
     },
-    "test:backend": {
+    "test:models": {
       "command": "mocha --recursive src/models --compilers js:babel-core/register --require babel-polyfill",
       "env": {
         "NODE_ENV": "test",
@@ -86,6 +86,7 @@
     "bcryptjs": "^2.3.0",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
+    "dataloader": "^1.2.0",
     "express": "^4.14.0",
     "express-graphql": "^0.5.4",
     "graphql": "^0.7.2",
