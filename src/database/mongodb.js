@@ -3,7 +3,7 @@ import Product from '../models/Product';
 import Brand from '../models/Brand';
 
 export const getBrands = () => {
-  Brand.find().populate('products');
+  return Brand.find().populate('products');
 };
 
 export const getBrandsByIds = (brandIds) => {
@@ -23,9 +23,9 @@ export const getUsersByEmails = (userEmails) => {
 };
 
 export const getProducts = () => {
-  return Product.find({}).populate('brand').populate('user');
+  return Product.find();
 };
 
 export const getProductsByIds = (productIds) => {
-  return Product.find({ _id: { $in: productIds } }).populate('brand').populate('user');
+  return Product.find({ _id: { $in: productIds } });
 };

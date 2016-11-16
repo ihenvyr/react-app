@@ -6,6 +6,8 @@ import {
   GraphQLList,
 } from 'graphql';
 
+// database specific methods on getting/updating the data
+// this time it's from mongodb
 import { getBrands, getUsers, getProducts } from '../database/mongodb';
 
 const RootQueryType = new GraphQLObjectType({

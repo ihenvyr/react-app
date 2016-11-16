@@ -28,12 +28,11 @@ mongoose.connect(config.mongodb());
 debug('Configure graphql schema');
 import schema from './schema';
 import graphqlHTTP from 'express-graphql';
-import {
-  getBrandsByIds,
-  getUsersByIds,
-  getUsersByEmails,
-  getProductsByIds,
-} from './database/mongodb';
+
+// database specific methods on getting/updating the data
+// this time it's from mongodb
+import { getBrandsByIds, getUsersByIds, getUsersByEmails, getProductsByIds } from './database/mongodb';
+
 app.use('/graphql', (req, res) => {
   debug('graphql query ==============================================================================================');
   debug('body', req.body);
