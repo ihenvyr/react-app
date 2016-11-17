@@ -4,8 +4,8 @@ import _ from 'lodash';
 const productSchema = new mongoose.Schema({
   name: { type: String, trim: true },
   description: { type: String, trim: true },
-  user_id: { type: String, trim: true },
-  brand_id: { type: String, trim: true },
+  user_id: { type: String },
+  brand_id: { type: String },
   variants: [{
     _id: false,
     position: { type: Number },

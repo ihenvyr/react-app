@@ -19,6 +19,12 @@ userSchema.virtual('products', {
   foreignField: 'user_id',
 });
 
+userSchema.virtual('counters', {
+  ref: 'Counter',
+  localField: '_id',
+  foreignField: 'user_id',
+});
+
 userSchema.virtual('admin').get(function() {
   return this.role === 'admin';
 });

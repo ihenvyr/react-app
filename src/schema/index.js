@@ -8,7 +8,7 @@ import {
 
 // database specific methods on getting/updating the data
 // this time it's from mongodb
-import { getBrands, getUsers, getProducts } from '../database/mongodb';
+import { getBrands, getUsers, getProducts, getCounters } from '../database/mongodb';
 
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -16,6 +16,7 @@ const RootQueryType = new GraphQLObjectType({
     const BrandType = require('./types/brand').default;
     const UserType = require('./types/user').default;
     const ProductType = require('./types/product').default;
+    const CounterType = require('./types/counter').default;
 
     return {
       brand: {
@@ -23,7 +24,7 @@ const RootQueryType = new GraphQLObjectType({
         args: {
           id: { type: new GraphQLNonNull(GraphQLString) }
         },
-        resolve: (object, args, context) => context.loaders.getBrandsByIds.load([args.id])
+        resolve: (object, args, context) => context.loaders.getBrandsByIds.load(args.id)
       },
       brands: {
         type: new GraphQLList(BrandType),
@@ -52,12 +53,23 @@ const RootQueryType = new GraphQLObjectType({
         args: {
           id: { type: new GraphQLNonNull(GraphQLString) }
         },
-        resolve: (object, args, context) => context.loaders.getProductsByIds.load([args.id])
+        resolve: (object, args, context) => context.loaders.getProductsByIds.load(args.id)
       },
       products: {
         type: new GraphQLList(ProductType),
         resolve: (object, args, context) => getProducts()
-      }
+      },
+      counter: {
+        type: CounterType,
+        args: {
+          id: { type: new GraphQLNonNull(GraphQLString) }
+        },
+        resolve: (object, args, context) => context.loaders.getCountersByIds.load(args.id)
+      },
+      counters: {
+        type: new GraphQLList(CounterType),
+        resolve: (object, args, context) => getCounters()
+      },
     };
   }
 });

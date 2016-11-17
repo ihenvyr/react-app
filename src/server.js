@@ -31,7 +31,10 @@ import graphqlHTTP from 'express-graphql';
 
 // database specific methods on getting/updating the data
 // this time it's from mongodb
-import { getBrandsByIds, getUsersByIds, getUsersByEmails, getProductsByIds } from './database/mongodb';
+import {
+  getBrandsByIds, getUsersByIds, getUsersByEmails, getProductsByIds,
+  getCountersByIds
+} from './database/mongodb';
 
 app.use('/graphql', (req, res) => {
   debug('graphql query ==============================================================================================');
@@ -43,6 +46,7 @@ app.use('/graphql', (req, res) => {
     getUsersByEmails: new DataLoader(getUsersByEmails),
     getBrandsByIds: new DataLoader(getBrandsByIds),
     getProductsByIds: new DataLoader(getProductsByIds),
+    getCountersByIds: new DataLoader(getCountersByIds),
   };
 
   graphqlHTTP({

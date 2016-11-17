@@ -1,6 +1,7 @@
 const User = require('../models/User').default;
 const Product = require('../models/Product').default;
 const Brand = require('../models/Brand').default;
+const Counter = require('../models/Counter').default;
 const config = require('../config');
 const mongoose = require('mongoose');
 const debug = require('debug')('app:mongodb:seed');
@@ -8,6 +9,15 @@ const debug = require('debug')('app:mongodb:seed');
 debug('Connect to mongodb');
 mongoose.connect(config.mongodb());
 mongoose.Promise = require('bluebird');
+
+const counter = new Counter({ _id: '582c6bf3bfa4d57c168fbebb', user_id: '5826780eb874f0602d6de07d' });
+counter.save(error => {
+  if (error) {
+    throw error;
+  }
+
+  debug('Counter db:seed completed!')
+});
 
 const brands = [
   {
