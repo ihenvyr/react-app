@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './styles/index.scss';
 
 // Redux App
-import App from './redux/containers/App';
+import App from './redux/containers/AppContainer';
 
 ReactDOM.render(
   <AppContainer>
@@ -14,10 +14,10 @@ ReactDOM.render(
 );
 
 if (module.hot) {
-  module.hot.accept('./redux/containers/App', () => {
+  module.hot.accept('./redux/containers/AppContainer', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./redux/containers/App').default;
+    const NextApp = require('./redux/containers/AppContainer').default;
     ReactDOM.render(
       <AppContainer>
         <NextApp />

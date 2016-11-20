@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Default.scss';
+import styles from './DefaultLayout.scss';
 import Header from './Header';
 import Footer from './Footer';
 
-const Default = (props) => {
+const DefaultLayout = (props) => {
   return (
     <div className={styles.container}>
       <Header />
@@ -12,7 +12,7 @@ const Default = (props) => {
     </div>
   );
 };
-Default.propTypes = { children: React.PropTypes.element };
-Default.defaultProps = {};
+DefaultLayout.propTypes = { children: React.PropTypes.element };
+DefaultLayout.defaultProps = {};
 
-export default Default;
+export default DefaultLayout;

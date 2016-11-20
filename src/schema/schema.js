@@ -13,10 +13,10 @@ import { getBrands, getUsers, getProducts, getCounters } from '../database/mongo
 const RootQueryType = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: () => {
-    const BrandType = require('./types/brand').default;
-    const UserType = require('./types/user').default;
-    const ProductType = require('./types/product').default;
-    const CounterType = require('./types/counter').default;
+    const BrandType = require('./types/brandType').default;
+    const UserType = require('./types/userType').default;
+    const ProductType = require('./types/productType').default;
+    const CounterType = require('./types/counterType').default;
 
     return {
       brand: {
@@ -74,9 +74,24 @@ const RootQueryType = new GraphQLObjectType({
   }
 });
 
+const RootMutationType = new GraphQLObjectType({
+  name: 'RootMutationType',
+  fields: () => {
+    const counterCountReset = require('./mutations/counterCountResetMutation').default;
+    const counterCountIncrement = require('./mutations/counterCountIncrementMutation').default;
+    const counterCountDecrement = require('./mutations/counterCountDecrementMutation').default;
+
+    return {
+      counterCountReset,
+      counterCountIncrement,
+      counterCountDecrement,
+    };
+  }
+});
+
 const appSchema = new GraphQLSchema({
   query: RootQueryType,
-  // mutation: {}
+  mutation: RootMutationType,
 });
 
 

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
-import { brandSchema } from './Brand';
+import { brandSchema } from './BrandModel';
 const connection = mongoose.createConnection('mongodb://localhost:27017/reactapp_test');
 const Brand = connection.model('Brand', brandSchema);
 

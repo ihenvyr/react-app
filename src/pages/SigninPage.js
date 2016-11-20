@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
-import Signin from '../redux/containers/Signin';
+import SigninContainer from '../redux/containers/SigninContainer';
 
 const SigninPage = () => {
   return (
@@ -13,7 +13,7 @@ const SigninPage = () => {
       />
       <h1>Sign In</h1>
 
-      <Signin />
+      <SigninContainer />
     </div>
   );
 };

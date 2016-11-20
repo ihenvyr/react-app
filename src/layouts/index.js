@@ -6,9 +6,9 @@ export default (props) => {
 
   // Dynamically choose Layout
   if (props.location.pathname.indexOf('/admin') != -1) {
-    Layout = require('./Admin').default;
+    Layout = require('./AdminLayout').default;
   } else {
-    Layout = require('./Default').default;
+    Layout = require('./DefaultLayout').default;
   }
 
   return (

@@ -26,7 +26,7 @@ mongoose.connect(config.mongodb());
 
 // graphql
 debug('Configure graphql schema');
-import schema from './schema';
+import schema from './schema/schema';
 import graphqlHTTP from 'express-graphql';
 
 // database specific methods on getting/updating the data
@@ -59,8 +59,8 @@ app.use('/graphql', (req, res) => {
 // passport
 // debug('Configure passport local strategy');
 // import passport from 'passport';
-// import local from './strategies/local';
-// passport.use(local);
+// import localStrategy from './strategies/localStrategy';
+// passport.use(localStrategy);
 
 // passport signin route
 // app.post('/signin', passport.authenticate('local', {
@@ -69,7 +69,7 @@ app.use('/graphql', (req, res) => {
 //   failureFlash: false
 // }));
 
-import User from './models/User';
+import User from './models/UserModel';
 app.post('/signin', (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email: email }, function(err, user) {

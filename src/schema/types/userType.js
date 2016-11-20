@@ -9,8 +9,8 @@ const UserType = new GraphQLObjectType({
   name: 'UserType',
   description: '...',
   fields: () => {
-    const ProductType = require('./product').default;
-    const CounterType = require('./counter').default;
+    const ProductType = require('./productType').default;
+    const CounterType = require('./counterType').default;
 
     return {
       id: { type: GraphQLID },

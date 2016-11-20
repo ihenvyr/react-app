@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 mongoose.Promise = require('bluebird');
-import { userSchema } from './User';
+import { userSchema } from './UserModel';
 const connection = mongoose.createConnection('mongodb://localhost:27017/reactapp_test');
 const User = connection.model('User', userSchema);
 

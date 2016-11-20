@@ -29,24 +29,33 @@ class Counter extends React.Component {
   state = {};
 
   onDecrement = () => {
-    this.props.counterDecrement();
+    this.props.counterCountDecrement(this.props.counterId)
+      .then(data => this.props.data.refetch());
   };
 
   onIncrement = () => {
-    this.props.counterIncrement();
+    this.props.counterCountIncrement(this.props.counterId)
+      .then(data => this.props.data.refetch());
   };
 
   onReset = () => {
-    this.props.counterReset();
+    this.props.counterCountReset(this.props.counterId)
+      .then(data => this.props.data.refetch());
   };
 
   render() {
+    const { data } = this.props;
+    // console.log('Counter props', this.props);
+    // console.log('Counter apollo data', this.props.data);
+
+    const count = data.counter ? data.counter.count : 0;
+
     return (
       <div className={styles.container}>
-        <h1 className={styles.counter}>{this.props.counter || 0}</h1>
+        <h1 className={styles.counter}>{count}</h1>
         <p>
           <button className="ui small button red" type="button" onClick={this.onDecrement}>-</button>
-          <button className="ui small button blue" type="button" onClick={this.onReset}>reset (async)</button>
+          <button className="ui small button blue" type="button" onClick={this.onReset}>reset</button>
           <button className="ui small button green" type="button" onClick={this.onIncrement}>+</button>
         </p>
       </div>

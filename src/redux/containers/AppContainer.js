@@ -3,18 +3,22 @@ import { Router } from 'react-router';
 import routes from '../../routes';
 import { browserHistory } from 'react-router';
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
+import ApolloClient from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
 import { routerMiddleware } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { user, counter } from '../../redux/reducers';
 
+const client = new ApolloClient();
+
 const customAPI = {};
 const enhancers = [];
-const middleware = [thunk.withExtraArgument(customAPI), routerMiddleware(browserHistory)];
+const middleware = [client.middleware(), thunk.withExtraArgument(customAPI), routerMiddleware(browserHistory)];
 const initialState = {};
 
 const store = createStore(
-  combineReducers({ user, counter }),
+  combineReducers({ user, counter, apollo: client.reducer() }),
   initialState,
   compose(
     applyMiddleware(...middleware),
@@ -24,12 +28,12 @@ const store = createStore(
 
 // console.log('store', store.getState());
 
-const App = () => {
+const AppContainer = () => {
   return (
-    <Provider store={store}>
+    <ApolloProvider store={store} client={client}>
       <Router history={browserHistory} routes={routes} />
-    </Provider>
+    </ApolloProvider>
   );
 };
 
-export default App;
+export default AppContainer;

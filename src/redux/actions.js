@@ -33,7 +33,7 @@ export const userSignin = ({ email, password }) => {
           type: USER_SIGNIN,
           payload: { token: 'token from server' }
         });
-      })
+      });
       // .catch(error => console.log('Error', error));
   };
 };

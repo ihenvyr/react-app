@@ -1,4 +1,4 @@
-import * as types from '../actions';
+import * as types from './actions';
 
 export const user = (state = { token: null }, action = {}) => {
   switch(action.type) {

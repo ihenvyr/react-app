@@ -9,7 +9,7 @@ const CounterType = new GraphQLObjectType({
   name: 'CounterType',
   description: '...',
   fields: () => {
-    const UserType = require('./user').default;
+    const UserType = require('./userType').default;
 
     return {
       id: { type: GraphQLID },

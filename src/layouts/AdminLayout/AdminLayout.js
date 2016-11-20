@@ -1,9 +1,9 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import './Admin.scss';
+import './AdminLayout.scss';
 
-const Admin = (props) => {
+const AdminLayout = (props) => {
   return (
     <div>
       <Header />
@@ -12,8 +12,8 @@ const Admin = (props) => {
     </div>
   );
 };
-Admin.propTypes = {
+AdminLayout.propTypes = {
   children: React.PropTypes.element.isRequired
 };
 
-export default Admin;
+export default AdminLayout;

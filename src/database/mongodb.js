@@ -1,7 +1,7 @@
-import User from '../models/User';
-import Product from '../models/Product';
-import Brand from '../models/Brand';
-import Counter from '../models/Counter';
+import User from '../models/UserModel';
+import Product from '../models/ProductModel';
+import Brand from '../models/BrandModel';
+import Counter from '../models/CounterModel';
 
 export const getBrands = () => {
   return Brand.find().populate('products');
@@ -37,4 +37,22 @@ export const getCounters = () => {
 
 export const getCountersByIds = (counterIds) => {
   return Counter.find({ _id: { $in: counterIds } });
+};
+
+export const counterCountReset = (counterId) => {
+  return Counter.update({ _id: counterId }, { $set: { count: 0 } });
+};
+
+export const counterCountIncrement = (counterId) => {
+  return Counter.findById(counterId).then(function(counter) {
+    counter.count = counter.count + 1;
+    return counter.save();
+  });
+};
+
+export const counterCountDecrement = (counterId) => {
+  return Counter.findById(counterId).then(function(counter) {
+    counter.count = counter.count - 1;
+    return counter.save();
+  });
 };

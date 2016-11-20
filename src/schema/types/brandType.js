@@ -9,7 +9,7 @@ const BrandType = new GraphQLObjectType({
   name: 'BrandType',
   description: '...',
   fields: () => {
-    const ProductType = require('./product').default;
+    const ProductType = require('./productType').default;
 
     return {
       id: { type: GraphQLID },
