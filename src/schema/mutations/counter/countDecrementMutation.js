@@ -2,8 +2,8 @@ import {
   GraphQLString,
   GraphQLNonNull,
 } from 'graphql';
-import CounterType from '../types/counterType';
-import { counterCountDecrement } from '../../database/mongodb';
+import CounterType from '../../types/counterType';
+import { counterCountDecrement } from '../../../database/mongodb';
 
 export default {
   type: CounterType,

@@ -77,9 +77,9 @@ const RootQueryType = new GraphQLObjectType({
 const RootMutationType = new GraphQLObjectType({
   name: 'RootMutationType',
   fields: () => {
-    const counterCountReset = require('./mutations/counterCountResetMutation').default;
-    const counterCountIncrement = require('./mutations/counterCountIncrementMutation').default;
-    const counterCountDecrement = require('./mutations/counterCountDecrementMutation').default;
+    const counterCountReset = require('./mutations/counter/countResetMutation').default;
+    const counterCountIncrement = require('./mutations/counter/countIncrementMutation').default;
+    const counterCountDecrement = require('./mutations/counter/countDecrementMutation').default;
 
     return {
       counterCountReset,
