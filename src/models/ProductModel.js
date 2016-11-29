@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
   variants: [{
     _id: false,
     position: { type: Number },
+    sku: { type: String, trim: true },  // shirt-small, shirt-blue, shirt-blue-small
     name: { type: String, trim: true },  // small, blue, blue - small
     cost: { type: Number },
     price: { type: Number },

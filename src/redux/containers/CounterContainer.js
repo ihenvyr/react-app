@@ -48,7 +48,7 @@ const counterCountDecrement = gql`mutation counterCountDecrement($counterId: Str
 
 export default compose(
   // graphql === connect
-  graphql(counter, { options: { pollInterval: 60000 } }),
+  graphql(counter/*, { options: { pollInterval: 60000 } }*/),
   graphql(counterCountReset, { name: 'counterCountReset' }),
   graphql(counterCountIncrement, { name: 'counterCountIncrement' }),
   graphql(counterCountDecrement, { name: 'counterCountDecrement' }),

@@ -35,6 +35,7 @@ const ProductType = new GraphQLObjectType({
           description: '...',
           fields: {
             position: { type: GraphQLInt },
+            sku: { type: GraphQLString },
             name: { type: GraphQLString },
             cost: { type: GraphQLInt },
             price: { type: GraphQLInt },

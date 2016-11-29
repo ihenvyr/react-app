@@ -1,7 +1,7 @@
-const User = require('../models/User').default;
-const Product = require('../models/Product').default;
-const Brand = require('../models/Brand').default;
-const Counter = require('../models/Counter').default;
+const User = require('../models/UserModel').default;
+const Product = require('../models/ProductModel').default;
+const Brand = require('../models/BrandModel').default;
+const Counter = require('../models/CounterModel').default;
 const config = require('../config');
 const mongoose = require('mongoose');
 const debug = require('debug')('app:mongodb:seed');
@@ -87,10 +87,10 @@ const products = [
     brand_id: '5826780eb874f0602d6de07b',
     user_id: '5826780eb874f0602d6de07d',
     variants: [
-      { position: 1, name: 'small', cost: 30, price: 45, quantity: 100, images: [] },
-      { position: 2, name: 'medium', cost: 30, price: 45, quantity: 100, images: [] },
-      { position: 3, name: 'large', cost: 35, price: 50, quantity: 100, images: [] },
-      { position: 4, name: 'x-large', cost: 35, price: 50, quantity: 100, images: [] },
+      { position: 1, sku: 'brief-small', name: 'small', cost: 30, price: 45, quantity: 100, images: [] },
+      { position: 2, sku: 'brief-medium', name: 'medium', cost: 30, price: 45, quantity: 100, images: [] },
+      { position: 3, sku: 'brief-large', name: 'large', cost: 35, price: 50, quantity: 100, images: [] },
+      { position: 4, sku: 'brief-x-large', name: 'x-large', cost: 35, price: 50, quantity: 100, images: [] },
     ],
   },
   {
@@ -98,10 +98,10 @@ const products = [
     brand_id: '5826780eb874f0602d6de07b',
     user_id: '5826780eb874f0602d6de07d',
     variants: [
-      { position: 1, name: 'small', cost: 40, price: 60, quantity: 100, images: [] },
-      { position: 2, name: 'medium', cost: 40, price: 60, quantity: 100, images: [] },
-      { position: 3, name: 'large', cost: 40, price: 60, quantity: 100, images: [] },
-      { position: 4, name: 'x-large', cost: 40, price: 60, quantity: 100, images: [] },
+      { position: 1, sku: 'shorts-small', name: 'small', cost: 40, price: 60, quantity: 100, images: [] },
+      { position: 2, sku: 'shorts-medium', name: 'medium', cost: 40, price: 60, quantity: 100, images: [] },
+      { position: 3, sku: 'shorts-large', name: 'large', cost: 40, price: 60, quantity: 100, images: [] },
+      { position: 4, sku: 'shorts-x-large', name: 'x-large', cost: 40, price: 60, quantity: 100, images: [] },
     ],
   },
 ];
