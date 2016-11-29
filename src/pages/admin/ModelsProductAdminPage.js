@@ -5,9 +5,9 @@ import { withRouter } from 'react-router';
 const ModelsProductAdminPage = () => {
   return (
     <div>
-      <Helmet title="Product - Admin"
+      <Helmet title="Product Model - Admin"
               meta={[
-                { name: "description", content: "Product - Admin" }
+                { name: "description", content: "Product Model - Admin" }
               ]}
       />
       <h1>ModelsProductAdminPage</h1>

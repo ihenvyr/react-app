@@ -15,6 +15,10 @@ if (__DEV__) {
   require('./pages/admin/ModelsUserAdminPage');
   require('./pages/admin/ModelsProductAdminPage');
   require('./pages/admin/ModelsPostAdminPage');
+  require('./pages/admin/CustomersAdminPage');
+  require('./pages/admin/CustomersTopAdminPage');
+  require('./pages/admin/CustomersNewAdminPage');
+  require('./pages/admin/CustomersRepeatAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
   require('./pages/SignupPage');
@@ -52,6 +56,14 @@ const routes = {
             { path: 'weekly', component: require('./pages/admin/SalesWeeklyAdminPage').default },
             { path: 'monthly', component: require('./pages/admin/SalesMonthlyAdminPage').default },
             { path: 'bestsellers', component: require('./pages/admin/SalesBestsellersAdminPage').default },
+          ]
+        },
+        {
+          path: 'customers', component: require('./pages/admin/CustomersAdminPage').default,
+          childRoutes: [
+            { path: 'top', component: require('./pages/admin/CustomersTopAdminPage').default },
+            { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
+            { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
           ]
         },
       ],

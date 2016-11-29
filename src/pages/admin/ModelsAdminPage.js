@@ -5,9 +5,9 @@ import { Link, withRouter } from 'react-router';
 const ModelAdminPage = (props) => {
   return (
     <div>
-      <Helmet title="Model"
+      <Helmet title="Models - Admin"
               meta={[
-                { name: "description", content: "Model" }
+                { name: "description", content: "Models - Admin" }
               ]}
       />
       {

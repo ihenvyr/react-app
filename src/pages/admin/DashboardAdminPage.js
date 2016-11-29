@@ -5,9 +5,9 @@ import { withRouter } from 'react-router';
 const DashboardAdminPage = (props) => {
   return (
     <div>
-      <Helmet title="Dashboard"
+      <Helmet title="Dashboard - Admin"
               meta={[
-                { name: "description", content: "Dashboard" }
+                { name: "description", content: "Dashboard - Admin" }
               ]}
       />
       {
