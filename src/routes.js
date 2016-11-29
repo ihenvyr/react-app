@@ -19,6 +19,11 @@ if (__DEV__) {
   require('./pages/admin/CustomersTopAdminPage');
   require('./pages/admin/CustomersNewAdminPage');
   require('./pages/admin/CustomersRepeatAdminPage');
+  require('./pages/admin/OrdersAdminPage');
+  require('./pages/admin/OrdersAllAdminPage');
+  require('./pages/admin/OrdersNewAdminPage');
+  require('./pages/admin/OrdersPaidAdminPage');
+  require('./pages/admin/OrdersShippedAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
   require('./pages/SignupPage');
@@ -42,6 +47,23 @@ const routes = {
       },
       childRoutes: [
         {
+          path: 'orders', component: require('./pages/admin/OrdersAdminPage').default,
+          childRoutes: [
+            { path: 'all', component: require('./pages/admin/OrdersAllAdminPage').default },
+            { path: 'new', component: require('./pages/admin/OrdersNewAdminPage').default },
+            { path: 'paid', component: require('./pages/admin/OrdersPaidAdminPage').default },
+            { path: 'shipped', component: require('./pages/admin/OrdersShippedAdminPage').default },
+          ]
+        },
+        {
+          path: 'customers', component: require('./pages/admin/CustomersAdminPage').default,
+          childRoutes: [
+            { path: 'top', component: require('./pages/admin/CustomersTopAdminPage').default },
+            { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
+            { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
+          ]
+        },
+        {
           path: 'models', component: require('./pages/admin/ModelsAdminPage').default,
           childRoutes: [
             { path: 'users', component: require('./pages/admin/ModelsUserAdminPage').default },
@@ -56,14 +78,6 @@ const routes = {
             { path: 'weekly', component: require('./pages/admin/SalesWeeklyAdminPage').default },
             { path: 'monthly', component: require('./pages/admin/SalesMonthlyAdminPage').default },
             { path: 'bestsellers', component: require('./pages/admin/SalesBestsellersAdminPage').default },
-          ]
-        },
-        {
-          path: 'customers', component: require('./pages/admin/CustomersAdminPage').default,
-          childRoutes: [
-            { path: 'top', component: require('./pages/admin/CustomersTopAdminPage').default },
-            { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
-            { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
           ]
         },
       ],
