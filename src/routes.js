@@ -16,9 +16,10 @@ if (__DEV__) {
   require('./pages/admin/ModelsProductAdminPage');
   require('./pages/admin/ModelsPostAdminPage');
   require('./pages/admin/CustomersAdminPage');
-  require('./pages/admin/CustomersTopAdminPage');
+  require('./pages/admin/CustomersAllAdminPage');
   require('./pages/admin/CustomersNewAdminPage');
   require('./pages/admin/CustomersRepeatAdminPage');
+  require('./pages/admin/CustomersProspectAdminPage');
   require('./pages/admin/OrdersAdminPage');
   require('./pages/admin/OrdersAllAdminPage');
   require('./pages/admin/OrdersNewAdminPage');
@@ -58,9 +59,10 @@ const routes = {
         {
           path: 'customers', component: require('./pages/admin/CustomersAdminPage').default,
           childRoutes: [
-            { path: 'top', component: require('./pages/admin/CustomersTopAdminPage').default },
+            { path: 'all', component: require('./pages/admin/CustomersAllAdminPage').default },
             { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
             { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
+            { path: 'prospect', component: require('./pages/admin/CustomersProspectAdminPage').default },
           ]
         },
         {
