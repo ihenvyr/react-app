@@ -12,9 +12,9 @@ if (__DEV__) {
   require('./pages/admin/SalesWeeklyAdminPage');
   require('./pages/admin/SalesMonthlyAdminPage');
   require('./pages/admin/SalesBestsellersAdminPage');
-  require('./pages/admin/UserAdminPage');
-  require('./pages/admin/ProductAdminPage');
-  require('./pages/admin/PostAdminPage');
+  require('./pages/admin/ModelsUserAdminPage');
+  require('./pages/admin/ModelsProductAdminPage');
+  require('./pages/admin/ModelsPostAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
   require('./pages/SignupPage');
@@ -40,9 +40,9 @@ const routes = {
         {
           path: 'models', component: require('./pages/admin/ModelsAdminPage').default,
           childRoutes: [
-            { path: 'users', component: require('./pages/admin/UserAdminPage').default },
-            { path: 'products', component: require('./pages/admin/ProductAdminPage').default },
-            { path: 'posts', component: require('./pages/admin/PostAdminPage').default },
+            { path: 'users', component: require('./pages/admin/ModelsUserAdminPage').default },
+            { path: 'products', component: require('./pages/admin/ModelsProductAdminPage').default },
+            { path: 'posts', component: require('./pages/admin/ModelsPostAdminPage').default },
           ]
         },
         {

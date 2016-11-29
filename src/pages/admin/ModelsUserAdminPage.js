@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
 
-const UserAdminPage = () => {
+const ModelsUserAdminPage = () => {
   return (
     <div>
       <Helmet title="User - Admin"
@@ -10,12 +10,12 @@ const UserAdminPage = () => {
                 { name: "description", content: "User - Admin" }
               ]}
       />
-      <h1>UserAdminPage</h1>
-      <p>UserAdminPage</p>
+      <h1>ModelsUserAdminPage</h1>
+      <p>ModelsUserAdminPage</p>
     </div>
   );
 };
-UserAdminPage.propTypes = {};
-UserAdminPage.defaultProps = {};
+ModelsUserAdminPage.propTypes = {};
+ModelsUserAdminPage.defaultProps = {};
 
-export default withRouter(UserAdminPage);
+export default withRouter(ModelsUserAdminPage);

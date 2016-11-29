@@ -2,7 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
 
-const ProductAdminPage = () => {
+const ModelsProductAdminPage = () => {
   return (
     <div>
       <Helmet title="Product - Admin"
@@ -10,12 +10,12 @@ const ProductAdminPage = () => {
                 { name: "description", content: "Product - Admin" }
               ]}
       />
-      <h1>ProductAdminPage</h1>
-      <p>ProductAdminPage</p>
+      <h1>ModelsProductAdminPage</h1>
+      <p>ModelsProductAdminPage</p>
     </div>
   );
 };
-ProductAdminPage.propTypes = {};
-ProductAdminPage.defaultProps = {};
+ModelsProductAdminPage.propTypes = {};
+ModelsProductAdminPage.defaultProps = {};
 
-export default withRouter(ProductAdminPage);
+export default withRouter(ModelsProductAdminPage);
