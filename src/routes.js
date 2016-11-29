@@ -15,16 +15,20 @@ if (__DEV__) {
   require('./pages/admin/ModelsUserAdminPage');
   require('./pages/admin/ModelsProductAdminPage');
   require('./pages/admin/ModelsPostAdminPage');
-  require('./pages/admin/CustomersAdminPage');
-  require('./pages/admin/CustomersAllAdminPage');
-  require('./pages/admin/CustomersNewAdminPage');
-  require('./pages/admin/CustomersRepeatAdminPage');
-  require('./pages/admin/CustomersProspectAdminPage');
   require('./pages/admin/OrdersAdminPage');
   require('./pages/admin/OrdersAllAdminPage');
   require('./pages/admin/OrdersNewAdminPage');
   require('./pages/admin/OrdersPaidAdminPage');
   require('./pages/admin/OrdersShippedAdminPage');
+  require('./pages/admin/CustomersAdminPage');
+  require('./pages/admin/CustomersAllAdminPage');
+  require('./pages/admin/CustomersNewAdminPage');
+  require('./pages/admin/CustomersRepeatAdminPage');
+  require('./pages/admin/CustomersProspectAdminPage');
+  require('./pages/admin/ProductsAdminPage');
+  require('./pages/admin/ProductsAllAdminPage');
+  require('./pages/admin/ProductsNewAdminPage');
+  require('./pages/admin/ProductsSoldoutAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
   require('./pages/SignupPage');
@@ -63,6 +67,14 @@ const routes = {
             { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
             { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
             { path: 'prospect', component: require('./pages/admin/CustomersProspectAdminPage').default },
+          ]
+        },
+        {
+          path: 'products', component: require('./pages/admin/ProductsAdminPage').default,
+          childRoutes: [
+            { path: 'all', component: require('./pages/admin/ProductsAllAdminPage').default },
+            { path: 'new', component: require('./pages/admin/ProductsNewAdminPage').default },
+            { path: 'soldout', component: require('./pages/admin/ProductsSoldoutAdminPage').default },
           ]
         },
         {

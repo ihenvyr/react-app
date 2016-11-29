@@ -10,6 +10,7 @@ const Header = () => {
         <IndexLink className="item" activeClassName="active" to="/admin">Dashboard</IndexLink>
         <Link className="item" activeClassName="active" to="/admin/orders">Orders</Link>
         <Link className="item" activeClassName="active" to="/admin/customers">Customers</Link>
+        <Link className="item" activeClassName="active" to="/admin/products">Products</Link>
         <Link className="item" activeClassName="active" to="/admin/sales">Sales</Link>
         <Link className="item" activeClassName="active" to="/admin/models">Models</Link>
 
