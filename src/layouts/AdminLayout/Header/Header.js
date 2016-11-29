@@ -8,6 +8,7 @@ const Header = () => {
       <nav role="navigation" className="ui secondary pointing menu">
         <div className="item"><i className="large cubes icon" /></div>
         <IndexLink className="item" activeClassName="active" to="/admin">Dashboard</IndexLink>
+        <Link className="item" activeClassName="active" to="/admin/sales">Sales</Link>
         <Link className="item" activeClassName="active" to="/admin/models">Models</Link>
 
         <div className="right menu">

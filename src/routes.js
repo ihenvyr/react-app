@@ -6,7 +6,12 @@ if (__DEV__) {
   // temporary fix react-hot-reload on development
   // just ignore "[HMR] unexpected require(453) from disposed module 413" warning when switching routes
   require('./pages/admin/DashboardAdminPage');
-  require('./pages/admin/ModelAdminPage');
+  require('./pages/admin/ModelsAdminPage');
+  require('./pages/admin/SalesAdminPage');
+  require('./pages/admin/SalesDailyAdminPage');
+  require('./pages/admin/SalesWeeklyAdminPage');
+  require('./pages/admin/SalesMonthlyAdminPage');
+  require('./pages/admin/SalesBestsellersAdminPage');
   require('./pages/admin/UserAdminPage');
   require('./pages/admin/ProductAdminPage');
   require('./pages/admin/PostAdminPage');
@@ -33,11 +38,20 @@ const routes = {
       },
       childRoutes: [
         {
-          path: 'models', component: require('./pages/admin/ModelAdminPage').default,
+          path: 'models', component: require('./pages/admin/ModelsAdminPage').default,
           childRoutes: [
             { path: 'users', component: require('./pages/admin/UserAdminPage').default },
             { path: 'products', component: require('./pages/admin/ProductAdminPage').default },
             { path: 'posts', component: require('./pages/admin/PostAdminPage').default },
+          ]
+        },
+        {
+          path: 'sales', component: require('./pages/admin/SalesAdminPage').default,
+          childRoutes: [
+            { path: 'daily', component: require('./pages/admin/SalesDailyAdminPage').default },
+            { path: 'weekly', component: require('./pages/admin/SalesWeeklyAdminPage').default },
+            { path: 'monthly', component: require('./pages/admin/SalesMonthlyAdminPage').default },
+            { path: 'bestsellers', component: require('./pages/admin/SalesBestsellersAdminPage').default },
           ]
         },
       ],
