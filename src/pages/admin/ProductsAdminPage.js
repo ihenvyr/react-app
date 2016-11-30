@@ -14,8 +14,7 @@ const ProductsAdminPage = (props) => {
         <div className="ui grid">
           <div className="three wide column">
             <div className="ui fluid vertical menu">
-              <Link className="item" activeClassName="active" to="/admin/products/all">All</Link>
-              <Link className="item" activeClassName="active" to="/admin/products/new">New</Link>
+              <Link className="item" activeClassName="active" to="/admin/products/all">All Products</Link>
               <Link className="item" activeClassName="active" to="/admin/products/soldout">Sold Out</Link>
             </div>
           </div>

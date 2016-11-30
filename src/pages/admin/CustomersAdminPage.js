@@ -15,8 +15,7 @@ const CustomersAdminPage = (props) => {
           <div className="three wide column">
             <div className="ui fluid vertical menu">
               <Link className="item" activeClassName="active" to="/admin/customers/all">All Customers</Link>
-              <Link className="item" activeClassName="active" to="/admin/customers/new">New</Link>
-              <Link className="item" activeClassName="active" to="/admin/customers/repeat">Repeat</Link>
+              <Link className="item" activeClassName="active" to="/admin/customers/repeat">Repeat Customers</Link>
               <Link className="item" activeClassName="active" to="/admin/customers/prospect">Prospect</Link>
             </div>
           </div>

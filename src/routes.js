@@ -22,12 +22,10 @@ if (__DEV__) {
   require('./pages/admin/OrdersCompletedAdminPage');
   require('./pages/admin/CustomersAdminPage');
   require('./pages/admin/CustomersAllAdminPage');
-  require('./pages/admin/CustomersNewAdminPage');
   require('./pages/admin/CustomersRepeatAdminPage');
   require('./pages/admin/CustomersProspectAdminPage');
   require('./pages/admin/ProductsAdminPage');
   require('./pages/admin/ProductsAllAdminPage');
-  require('./pages/admin/ProductsNewAdminPage');
   require('./pages/admin/ProductsSoldoutAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
@@ -64,7 +62,6 @@ const routes = {
           path: 'customers', component: require('./pages/admin/CustomersAdminPage').default,
           childRoutes: [
             { path: 'all', component: require('./pages/admin/CustomersAllAdminPage').default },
-            { path: 'new', component: require('./pages/admin/CustomersNewAdminPage').default },
             { path: 'repeat', component: require('./pages/admin/CustomersRepeatAdminPage').default },
             { path: 'prospect', component: require('./pages/admin/CustomersProspectAdminPage').default },
           ]
@@ -73,7 +70,6 @@ const routes = {
           path: 'products', component: require('./pages/admin/ProductsAdminPage').default,
           childRoutes: [
             { path: 'all', component: require('./pages/admin/ProductsAllAdminPage').default },
-            { path: 'new', component: require('./pages/admin/ProductsNewAdminPage').default },
             { path: 'soldout', component: require('./pages/admin/ProductsSoldoutAdminPage').default },
           ]
         },
