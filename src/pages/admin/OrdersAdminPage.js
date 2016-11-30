@@ -14,10 +14,14 @@ const OrdersAdminPage = (props) => {
         <div className="ui grid">
           <div className="three wide column">
             <div className="ui fluid vertical menu">
-              <Link className="item" activeClassName="active" to="/admin/orders/all">All</Link>
-              <Link className="item" activeClassName="active" to="/admin/orders/new">New</Link>
-              <Link className="item" activeClassName="active" to="/admin/orders/paid">Paid</Link>
-              <Link className="item" activeClassName="active" to="/admin/orders/shipped">Shipped</Link>
+              <Link className="item" activeClassName="active" to="/admin/orders/all">All Orders</Link>
+              <Link className="item" activeClassName="active" to="/admin/orders/awaiting-payment">
+                Awaiting Payment
+              </Link>
+              <Link className="item" activeClassName="active" to="/admin/orders/ready-to-ship">
+                Ready to Ship
+              </Link>
+              <Link className="item" activeClassName="active" to="/admin/orders/completed">Completed</Link>
             </div>
           </div>
           <div className="thirteen wide column">

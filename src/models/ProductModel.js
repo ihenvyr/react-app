@@ -6,6 +6,7 @@ const productSchema = new mongoose.Schema({
   description: { type: String, trim: true },
   user_id: { type: String },
   brand_id: { type: String },
+  is_visible: { type: Boolean },
   variants: [{
     _id: false,
     position: { type: Number },

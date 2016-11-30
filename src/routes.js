@@ -17,9 +17,9 @@ if (__DEV__) {
   require('./pages/admin/ModelsPostAdminPage');
   require('./pages/admin/OrdersAdminPage');
   require('./pages/admin/OrdersAllAdminPage');
-  require('./pages/admin/OrdersNewAdminPage');
-  require('./pages/admin/OrdersPaidAdminPage');
-  require('./pages/admin/OrdersShippedAdminPage');
+  require('./pages/admin/OrdersAwaitingPaymentAdminPage');
+  require('./pages/admin/OrdersReadyToShipAdminPage');
+  require('./pages/admin/OrdersCompletedAdminPage');
   require('./pages/admin/CustomersAdminPage');
   require('./pages/admin/CustomersAllAdminPage');
   require('./pages/admin/CustomersNewAdminPage');
@@ -55,9 +55,9 @@ const routes = {
           path: 'orders', component: require('./pages/admin/OrdersAdminPage').default,
           childRoutes: [
             { path: 'all', component: require('./pages/admin/OrdersAllAdminPage').default },
-            { path: 'new', component: require('./pages/admin/OrdersNewAdminPage').default },
-            { path: 'paid', component: require('./pages/admin/OrdersPaidAdminPage').default },
-            { path: 'shipped', component: require('./pages/admin/OrdersShippedAdminPage').default },
+            { path: 'awaiting-payment', component: require('./pages/admin/OrdersAwaitingPaymentAdminPage').default },
+            { path: 'ready-to-ship', component: require('./pages/admin/OrdersReadyToShipAdminPage').default },
+            { path: 'completed', component: require('./pages/admin/OrdersCompletedAdminPage').default },
           ]
         },
         {
