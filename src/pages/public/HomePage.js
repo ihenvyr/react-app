@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
-import Welcome from '../components/Welcome';
+import Welcome from '../../components/Welcome';
 
 const HomePage = () => {
   return (

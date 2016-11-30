@@ -9,6 +9,7 @@ const Header = () => {
         <div className="ui secondary pointing menu">
           <IndexLink className="item" activeClassName="active" to="/">Home</IndexLink>
           <Link className="item" activeClassName="active" to="/demos">Demos</Link>
+          <Link className="item" activeClassName="active" to="/blog">Blog</Link>
           <Link className="item" activeClassName="active" to="/about">About</Link>
           <div className="right menu">
             <Link className="item" activeClassName="active" to="/signup">Sign Up</Link>

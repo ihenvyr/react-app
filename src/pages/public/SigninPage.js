@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
-import SigninContainer from '../redux/containers/SigninContainer';
+import SigninContainer from '../../redux/containers/SigninContainer';
 
 const SigninPage = () => {
   return (
@@ -11,7 +11,7 @@ const SigninPage = () => {
                 { name: "description", content: "Sign in" }
               ]}
       />
-      <h1>Sign In</h1>
+      <h2>Sign In</h2>
 
       <SigninContainer />
     </div>

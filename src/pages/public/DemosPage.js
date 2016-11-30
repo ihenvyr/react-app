@@ -14,7 +14,7 @@ const DemosPage = (props) => {
       {
         props.children ||
         <div>
-          <h1>Demos</h1>
+          <h2>Demos</h2>
 
           <div className="ui bulleted list">
             <div className="item"><Link to="/demos/counter">Counter</Link></div>

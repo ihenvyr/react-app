@@ -15,7 +15,7 @@ class Welcome extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <h1>Welcome to React App</h1>
+        <h2>Welcome to React App</h2>
         <p>
           A <span className="bold-green-text">simple</span> react application boilerplate!
           {' '}

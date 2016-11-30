@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
-import CounterContainer from '../redux/containers/CounterContainer';
+import CounterContainer from '../../redux/containers/CounterContainer';
 
 const CounterPage = () => {
   return (
@@ -11,7 +11,7 @@ const CounterPage = () => {
                 { name: "description", content: "Counter" }
               ]}
       />
-      <h1>Counter</h1>
+      <h2>Counter</h2>
       <CounterContainer counterId="582c6bf3bfa4d57c168fbebb" />
     </div>
   );

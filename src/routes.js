@@ -1,17 +1,17 @@
 import LayoutController from './layouts';
-import Home from './pages/HomePage';
+import Home from './pages/public/HomePage';
 
 if (__DEV__) {
   // TODO check this bug after react-hot-reload update
   // temporary fix react-hot-reload on development
   // just ignore "[HMR] unexpected require(453) from disposed module 413" warning when switching routes
-  require('./pages/AboutPage');
-  require('./pages/DemosPage');
-  require('./pages/SignupPage');
-  require('./pages/SigninPage');
-  require('./pages/SignoutPage');
-  require('./pages/CounterPage');
-  require('./pages/NotFoundPage');
+  require('./pages/public/AboutPage');
+  require('./pages/public/DemosPage');
+  require('./pages/public/SignupPage');
+  require('./pages/public/SigninPage');
+  require('./pages/public/SignoutPage');
+  require('./pages/public/CounterPage');
+  require('./pages/public/NotFoundPage');
 }
 
 const routes = {
@@ -81,7 +81,15 @@ const routes = {
       path: 'about',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/AboutPage').default);
+          callback(null, require('./pages/public/AboutPage').default);
+        });
+      }
+    },
+    {
+      path: 'blog',
+      getComponents(nextState, callback) {
+        require.ensure([], function(require) {
+          callback(null, require('./pages/public/BlogPage').default);
         });
       }
     },
@@ -89,18 +97,18 @@ const routes = {
       path: 'demos',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/DemosPage').default);
+          callback(null, require('./pages/public/DemosPage').default);
         });
       },
       childRoutes: [
-        { path: 'counter', component: require('./pages/CounterPage').default },
+        { path: 'counter', component: require('./pages/public/CounterPage').default },
       ]
     },
     {
       path: 'signup',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/SignupPage').default);
+          callback(null, require('./pages/public/SignupPage').default);
         });
       }
     },
@@ -108,7 +116,7 @@ const routes = {
       path: 'signin',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/SigninPage').default);
+          callback(null, require('./pages/public/SigninPage').default);
         });
       }
     },
@@ -116,7 +124,7 @@ const routes = {
       path: 'signout',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/SignoutPage').default);
+          callback(null, require('./pages/public/SignoutPage').default);
         });
       }
     },
@@ -124,7 +132,7 @@ const routes = {
       path: '*',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/NotFoundPage').default);
+          callback(null, require('./pages/public/NotFoundPage').default);
         });
       }
     }

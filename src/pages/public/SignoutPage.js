@@ -24,7 +24,7 @@ class SignoutPage extends React.Component {
                   { name: "description", content: "Signing out.." }
                 ]}
         />
-        <h1>Signing out..</h1>
+        <h2>Signing out..</h2>
         <p>Please wait while we sign you out from the app!</p>
       </div>
     );

@@ -10,7 +10,7 @@ const AboutPage = () => {
                 { name: "description", content: "About" }
               ]}
       />
-      <h1>About</h1>
+      <h2>About</h2>
       <p>It includes react-router, react-hot-loader 3, express, karma test runner and semantic-ui css framework!</p>
     </div>
   );

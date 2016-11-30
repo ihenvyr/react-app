@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { withRouter } from 'react-router';
-import SignupContainer from '../redux/containers/SignupContainer';
+import SignupContainer from '../../redux/containers/SignupContainer';
 
 const SignupPage = () => {
   return (
@@ -11,7 +11,7 @@ const SignupPage = () => {
                 { name: "description", content: "Sign up" }
               ]}
       />
-      <h1>Sign Up</h1>
+      <h2>Sign Up</h2>
 
       <SignupContainer />
     </div>

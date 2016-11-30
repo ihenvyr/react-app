@@ -10,7 +10,7 @@ const NotFoundPage = () => {
                 { name: "description", content: "Page not found" }
               ]}
       />
-      <h1>Page not found :(</h1>
+      <h2>Page not found :(</h2>
       <p>We couldn't load the page you requested..</p>
     </div>
   );
