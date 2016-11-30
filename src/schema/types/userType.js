@@ -15,6 +15,12 @@ const UserType = new GraphQLObjectType({
     return {
       id: { type: GraphQLID },
       email: { type: GraphQLString },
+      first_name: { type: GraphQLString },
+      last_name: { type: GraphQLString },
+      contact_number: { type: GraphQLString },
+      facebook: { type: GraphQLString },
+      address: { type: GraphQLString },
+      role: { type: GraphQLString },
       password: { type: GraphQLString },
       products: { type: new GraphQLList(ProductType) },
       counters: { type: new GraphQLList(CounterType) },

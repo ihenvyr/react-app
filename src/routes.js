@@ -26,13 +26,17 @@ const routes = {
           callback(null, require('./pages/admin/HomeAdminPage').default);
         });
       },
-      onEnter: (next, replace) => {
+      onEnter: (nextState, replace) => {
         const logged_in = true;
         if (logged_in) {
           return;
         }
         // redirect to signin page..
         replace('/admin/signin');
+        // replace({
+        //   pathname: '/signin',
+        //   state: { nextPathName: nextState.location.pathname },
+        // });
       },
       childRoutes: [
         {
@@ -60,11 +64,16 @@ const routes = {
           ]
         },
         {
-          path: 'models', component: require('./pages/admin/ModelsAdminPage').default,
+          path: 'models', component: require('./pages/admin/models/ModelsAdminPage').default,
           childRoutes: [
-            { path: 'users', component: require('./pages/admin/ModelsUserAdminPage').default },
-            { path: 'products', component: require('./pages/admin/ModelsProductAdminPage').default },
-            { path: 'posts', component: require('./pages/admin/ModelsPostAdminPage').default },
+            {
+              path: 'users', component: require('./pages/admin/models/ModelsUserAdminPage').default,
+              childRoutes: [
+                { path: 'new', component: require('./pages/admin/models/ModelsUserNewAdminPage').default },
+              ],
+            },
+            { path: 'products', component: require('./pages/admin/models/ModelsProductAdminPage').default },
+            { path: 'posts', component: require('./pages/admin/models/ModelsPostAdminPage').default },
           ]
         },
         {

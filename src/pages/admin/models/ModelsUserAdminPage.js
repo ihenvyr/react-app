@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { withRouter } from 'react-router';
+import { Link, withRouter } from 'react-router';
 
-const ModelsUserAdminPage = () => {
+const ModelsUserAdminPage = (props) => {
   return (
     <div>
       <Helmet title="User Model - Admin"
@@ -10,8 +10,17 @@ const ModelsUserAdminPage = () => {
                 { name: "description", content: "User Model - Admin" }
               ]}
       />
-      <h3>ModelsUserAdminPage</h3>
-      <p>ModelsUserAdminPage</p>
+      {
+        props.children ||
+          <div>
+            <h3>
+              Users
+              &nbsp;
+              <Link to="/admin/models/users/new" className="ui green button mini">New User</Link>
+            </h3>
+            <p>ModelsUserAdminPage</p>
+          </div>
+      }
     </div>
   );
 };
