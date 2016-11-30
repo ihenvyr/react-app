@@ -60,12 +60,11 @@ const routes = {
           ]
         },
         {
-          path: 'sales', component: require('./pages/admin/SalesAdminPage').default,
+          path: 'reports', component: require('./pages/admin/ReportsAdminPage').default,
           childRoutes: [
-            { path: 'daily', component: require('./pages/admin/SalesDailyAdminPage').default },
-            { path: 'weekly', component: require('./pages/admin/SalesWeeklyAdminPage').default },
-            { path: 'monthly', component: require('./pages/admin/SalesMonthlyAdminPage').default },
-            { path: 'bestsellers', component: require('./pages/admin/SalesBestsellersAdminPage').default },
+            { path: 'sales', component: require('./pages/admin/ReportsSalesAdminPage').default },
+            { path: 'visitors', component: require('./pages/admin/ReportsVisitorsAdminPage').default },
+            { path: 'customers', component: require('./pages/admin/ReportsCustomersAdminPage').default },
           ]
         },
       ],
