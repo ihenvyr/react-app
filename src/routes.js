@@ -26,6 +26,14 @@ const routes = {
           callback(null, require('./pages/admin/HomeAdminPage').default);
         });
       },
+      onEnter: (next, replace) => {
+        const logged_in = true;
+        if (logged_in) {
+          return;
+        }
+        // redirect to signin page..
+        replace('/admin/signin');
+      },
       childRoutes: [
         {
           path: 'orders', component: require('./pages/admin/OrdersAdminPage').default,
