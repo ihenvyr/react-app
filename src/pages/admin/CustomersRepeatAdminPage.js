@@ -10,7 +10,7 @@ const CustomersRepeatAdminPage = () => {
                 { name: "description", content: "Repeat Customers - Admin" }
               ]}
       />
-      <h1>CustomersRepeatAdminPage</h1>
+      <h3>CustomersRepeatAdminPage</h3>
       <p>CustomersRepeatAdminPage</p>
     </div>
   );

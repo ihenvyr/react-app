@@ -10,7 +10,7 @@ const OrdersAllAdminPage = () => {
                 { name: "description", content: "All Orders - Admin" }
               ]}
       />
-      <h1>OrdersAllAdminPage</h1>
+      <h3>OrdersAllAdminPage</h3>
       <p>OrdersAllAdminPage</p>
     </div>
   );

@@ -10,7 +10,7 @@ const OrdersCompletedAdminPage = () => {
                 { name: "description", content: "Completed Orders - Admin" }
               ]}
       />
-      <h1>OrdersCompletedAdminPage</h1>
+      <h3>OrdersCompletedAdminPage</h3>
       <p>OrdersCompletedAdminPage</p>
     </div>
   );

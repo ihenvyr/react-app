@@ -10,7 +10,7 @@ const CustomersProspectAdminPage = () => {
                 { name: "description", content: "Prospect Customers - Admin" }
               ]}
       />
-      <h1>CustomersProspectAdminPage</h1>
+      <h3>CustomersProspectAdminPage</h3>
       <p>CustomersProspectAdminPage</p>
     </div>
   );

@@ -10,7 +10,7 @@ const OrdersReadyToShipAdminPage = () => {
                 { name: "description", content: "Orders that are Ready to Ship - Admin" }
               ]}
       />
-      <h1>OrdersReadyToShipAdminPage</h1>
+      <h3>OrdersReadyToShipAdminPage</h3>
       <p>OrdersReadyToShipAdminPage</p>
     </div>
   );

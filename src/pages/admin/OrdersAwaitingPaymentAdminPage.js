@@ -10,7 +10,7 @@ const OrdersAwaitingPaymentAdminPage = () => {
                 { name: "description", content: "Orders Awaiting Payments - Admin" }
               ]}
       />
-      <h1>OrdersAwaitingPaymentAdminPage</h1>
+      <h3>OrdersAwaitingPaymentAdminPage</h3>
       <p>OrdersAwaitingPaymentAdminPage</p>
     </div>
   );

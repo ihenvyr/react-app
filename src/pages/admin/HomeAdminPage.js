@@ -13,7 +13,7 @@ const HomeAdminPage = (props) => {
       {
         props.children ||
         <div>
-          <h1>HomeAdminPage</h1>
+          <h3>HomeAdminPage</h3>
           <p>HomeAdminPage</p>
         </div>
       }
