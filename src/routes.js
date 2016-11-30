@@ -5,28 +5,6 @@ if (__DEV__) {
   // TODO check this bug after react-hot-reload update
   // temporary fix react-hot-reload on development
   // just ignore "[HMR] unexpected require(453) from disposed module 413" warning when switching routes
-  require('./pages/admin/HomeAdminPage');
-  require('./pages/admin/ModelsAdminPage');
-  require('./pages/admin/SalesAdminPage');
-  require('./pages/admin/SalesDailyAdminPage');
-  require('./pages/admin/SalesWeeklyAdminPage');
-  require('./pages/admin/SalesMonthlyAdminPage');
-  require('./pages/admin/SalesBestsellersAdminPage');
-  require('./pages/admin/ModelsUserAdminPage');
-  require('./pages/admin/ModelsProductAdminPage');
-  require('./pages/admin/ModelsPostAdminPage');
-  require('./pages/admin/OrdersAdminPage');
-  require('./pages/admin/OrdersAllAdminPage');
-  require('./pages/admin/OrdersAwaitingPaymentAdminPage');
-  require('./pages/admin/OrdersReadyToShipAdminPage');
-  require('./pages/admin/OrdersCompletedAdminPage');
-  require('./pages/admin/CustomersAdminPage');
-  require('./pages/admin/CustomersAllAdminPage');
-  require('./pages/admin/CustomersRepeatAdminPage');
-  require('./pages/admin/CustomersProspectAdminPage');
-  require('./pages/admin/ProductsAdminPage');
-  require('./pages/admin/ProductsAllAdminPage');
-  require('./pages/admin/ProductsSoldoutAdminPage');
   require('./pages/AboutPage');
   require('./pages/DemosPage');
   require('./pages/SignupPage');
