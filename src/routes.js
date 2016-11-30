@@ -5,7 +5,7 @@ if (__DEV__) {
   // TODO check this bug after react-hot-reload update
   // temporary fix react-hot-reload on development
   // just ignore "[HMR] unexpected require(453) from disposed module 413" warning when switching routes
-  require('./pages/admin/DashboardAdminPage');
+  require('./pages/admin/HomeAdminPage');
   require('./pages/admin/ModelsAdminPage');
   require('./pages/admin/SalesAdminPage');
   require('./pages/admin/SalesDailyAdminPage');
@@ -47,7 +47,7 @@ const routes = {
       path: 'admin',
       getComponents(nextState, callback) {
         require.ensure([], function(require) {
-          callback(null, require('./pages/admin/DashboardAdminPage').default);
+          callback(null, require('./pages/admin/HomeAdminPage').default);
         });
       },
       childRoutes: [

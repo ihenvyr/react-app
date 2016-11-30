@@ -7,7 +7,7 @@ const Header = () => {
     <header role="banner" className="hide-on-print">
       <nav role="navigation" className="ui secondary pointing menu">
         <div className="item"><i className="large cubes icon" /></div>
-        <IndexLink className="item" activeClassName="active" to="/admin">Dashboard</IndexLink>
+        <IndexLink className="item" activeClassName="active" to="/admin">Home</IndexLink>
         <Link className="item" activeClassName="active" to="/admin/orders">Orders</Link>
         <Link className="item" activeClassName="active" to="/admin/customers">Customers</Link>
         <Link className="item" activeClassName="active" to="/admin/products">Products</Link>
